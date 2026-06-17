@@ -84,45 +84,26 @@ storage:
 # ---------------------------------------------------------------------------
 images:
   # Infrastructure
-  #etcd: lakshmilavanya2001/insurance-chat-assistant:etcd
-  etcd: lakshmilavanya2001/insurance-chat-assiatant-latest:etcd
-  #minio: lakshmilavanya2001/insurance-chat-assistant:minio
-  minio: lakshmilavanya2001/insurance-chat-assiatant-latest:minio
-  #milvus: lakshmilavanya2001/insurance-chat-assistant:milvus
-  milvus: lakshmilavanya2001/insurance-chat-assiatant-latest:milvus
-  #postgres: lakshmilavanya2001/insurance-chat-assistant:postgres
-  postgres: lakshmilavanya2001/insurance-chat-assiatant-latest:postgres
-  #mongodb: lakshmilavanya2001/insurance-chat-assistant:mongo
-  mongodb: lakshmilavanya2001/insurance-chat-assiatant-latest:mongo
+  etcd:     image-registry.openshift-image-registry.svc:5000/chat-assistant/insurance-chat-assistant:etcd
+  minio:    image-registry.openshift-image-registry.svc:5000/chat-assistant/insurance-chat-assistant:minio
+  milvus:   image-registry.openshift-image-registry.svc:5000/chat-assistant/insurance-chat-assistant:milvus
+  postgres: image-registry.openshift-image-registry.svc:5000/chat-assistant/insurance-chat-assistant:postgres
+  mongodb:  image-registry.openshift-image-registry.svc:5000/chat-assistant/insurance-chat-assistant:mongo
   # Backend services
-  #chainServer: lakshmilavanya2001/insurance-chat-assistant:chain-server
-  #chainServer: lakshmilavanya2001/chat-assistant-main:chain-server
-  chainServer: lakshmilavanya2001/insurance-chat-assiatant-latest:chain-server
-
-  #catalogRetriever: lakshmilavanya2001/insurance-chat-assistant:catalog-retriever
-  #catalogRetriever: lakshmilavanya2001/chat-assistant-main:catalog-retriever
-  catalogRetriever: lakshmilavanya2001/insurance-chat-assiatant-latest:catalog-retriever
-  #memoryRetriever: lakshmilavanya2001/insurance-chat-assistant:memory-retriever
-  #memoryRetriever: lakshmilavanya2001/chat-assistant-main:memory-retriever
-  memoryRetriever: lakshmilavanya2001/insurance-chat-assiatant-latest:memory-retriever
-  #rails: lakshmilavanya2001/insurance-chat-assistant:rails
-  #rails: lakshmilavanya2001/chat-assistant-main:rails
-  rails: lakshmilavanya2001/insurance-chat-assiatant-latest:rails
-  #textToSqlAgent: lakshmilavanya2001/insurance-chat-assistant:text-to-sql-agent
-  textToSqlAgent: lakshmilavanya2001/insurance-chat-assiatant-latest:text-to-sql-agent
-  #userManagement: lakshmilavanya2001/insurance-chat-assistant:user-management
-  userManagement: lakshmilavanya2001/insurance-chat-assiatant-latest:user-management
-  #notificationAgent: lakshmilavanya2001/insurance-chat-assistant:notification-agent
-  notificationAgent: lakshmilavanya2001/insurance-chat-assiatant-latest:notification-agent
+  chainServer:       image-registry.openshift-image-registry.svc:5000/chat-assistant/insurance-chat-assistant:chain-server
+  catalogRetriever:  image-registry.openshift-image-registry.svc:5000/chat-assistant/insurance-chat-assistant:catalog-retriever
+  memoryRetriever:   image-registry.openshift-image-registry.svc:5000/chat-assistant/insurance-chat-assistant:memory-retriever
+  rails:             image-registry.openshift-image-registry.svc:5000/chat-assistant/insurance-chat-assistant:rails
+  textToSqlAgent:    image-registry.openshift-image-registry.svc:5000/chat-assistant/insurance-chat-assistant:text-to-sql-agent
+  userManagement:    image-registry.openshift-image-registry.svc:5000/chat-assistant/insurance-chat-assistant:user-management
+  notificationAgent: image-registry.openshift-image-registry.svc:5000/chat-assistant/insurance-chat-assistant:notification-agent
   # NVIDIA / NIM (pulled from nvcr.io – unchanged)
   llama: "nvcr.io/nim/meta/llama-3.1-8b-instruct:1.8.6"
   embedqa: "nvcr.io/nim/nvidia/nv-embedqa-e5-v5:1.6"
   content: "nvcr.io/nim/nvidia/llama-3.1-nemoguard-8b-content-safety:1.10.1"
   topicControl: "nvcr.io/nim/nvidia/llama-3.1-nemoguard-8b-topic-control:1.10.1"
   # Frontend
-  #frontend: lakshmilavanya2001/insurance-chat-assistant:frontend
-  #frontend: lakshmilavanya2001/chat-assistant-main:frontend
-  frontend: lakshmilavanya2001/insurance-chat-assiatant-latest:frontend
+  frontend: image-registry.openshift-image-registry.svc:5000/chat-assistant/insurance-chat-assistant:frontend
 
 # Default replica count for all deployments
 replicaCount: 1

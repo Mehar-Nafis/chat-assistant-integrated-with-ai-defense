@@ -71,7 +71,12 @@ metadata:
     {{- include "chat-assistance.labels" . | nindent 4 }}
 spec:
   ports:
-    - port: 8000
+    - name: nim
+      port: 8000
+      targetPort: 8000
+    # Also serve on port 80 for portless-URL access (consistency with the other NIMs).
+    - name: http
+      port: 80
       targetPort: 8000
   selector:
     app: embedqa

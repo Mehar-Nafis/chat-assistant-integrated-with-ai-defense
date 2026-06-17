@@ -106,7 +106,13 @@ metadata:
     {{- include "chat-assistance.labels" . | nindent 4 }}
 spec:
   ports:
-    - port: 8000
+    - name: nim
+      port: 8000
+      targetPort: 8000
+    # Also serve on port 80 so a portless URL (e.g. AI Defense forwarding to
+    # http://topic-control.chat-assistant.svc.cluster.local) reaches the NIM on 8000.
+    - name: http
+      port: 80
       targetPort: 8000
   selector:
     app: topic-control
