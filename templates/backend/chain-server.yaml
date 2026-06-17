@@ -69,6 +69,12 @@ spec:
               mountPath: /app/app/main.py
               subPath: main.py
               readOnly: true
+            # Patched chatter.py: non-streaming LLM call (AI Defense can't stream) +
+            # AI Defense block detection -> unsafe_message
+            - name: chain-chatter-patch
+              mountPath: /app/app/chatter.py
+              subPath: chatter.py
+              readOnly: true
       volumes:
         - name: chain-config
           configMap:
@@ -85,6 +91,9 @@ spec:
         - name: chain-main-patch
           configMap:
             name: chain-main-patch
+        - name: chain-chatter-patch
+          configMap:
+            name: chain-chatter-patch
 ---
 apiVersion: v1
 kind: Service
